@@ -4,8 +4,8 @@
     <title>Public Meetings List</title>
 </head>
 <body>
-    <nav><a href="">Submit a Complaint Here</a></nav>
     <h1>Public Meetings List</h1>
+    <nav><a href="file-complaint.html">Submit a Complaint Here</a></nav>
     <!-- This page will contain the list of meetings for public viewing. -->
     <!-- There will be a login box for council members that takes members to the complaints list -->
     <!-- There will also be a link to file a complaint -->
@@ -19,7 +19,25 @@
     </table>
 </body>
 <script>
-
+            // highPriorityBtn.document.addEventListener('submit', event => {
+            //     event.preventDefault();
+            //     async function updateComplaintStatus(complaintId, status) {
+            //         let requestString = `http://localhost:8080/complaints/${complaintId}/${status}`;
+            //         const response = await fetch(requestString, {
+            //             method:"PATCH",
+            //             body: JSON.stringify(complaint),
+            //             headers: {
+            //              "content-type":"application/json"
+            //             }
+            //         });
+            //         const complaints = await response.json();
+            //         if (response.status === 202) {
+            //             alert("Status updated.")
+            //         } else if (response.status === 304) {
+            //             alert("Error. Status not changed.")
+            //         }
+            //     }
+            // });
 
     
 </script>

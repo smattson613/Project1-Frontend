@@ -5,6 +5,54 @@
 </head>
 <body>
     <h1>File a Complaint Here</h1>
+    <nav><a href="complaints-list.html">Temp link for comaplint list</a></nav>
+    <nav><a href="public-meeting-list.html">Return to the Meeting List</a></nav>
     <!-- This page will contain the ability to file a complaint that will be populated to the complaint list page accessible by council members only -->
+    <form>
+        <fieldset>
+            <legend>Complaint Information</legend>
+
+            <label for="inputTitle"></label>
+            <input id="inputTitle" type="text" placeholder="Title" required minlength="3" maxlength="40"/>
+
+            <label for="inputDescription"></label>
+            <input id="inputDescription" type="text" placeholder="Description" required minlength="10" max="180"/>
+            
+            <button>Submit</button>
+
+        </fieldset>
+        
+    </form>
+
 </body>
+<script>
+
+    const inputTitle = document.getElementById('inputTitle');
+    const inputDescription = document.getElementById('inputDescription');
+
+    document.addEventListener("submit", async event => {
+        event.preventDefault();
+
+        const title = inputTitle.value;
+        const description = inputDescription.value;
+        const complaint = {complaintId:0, title, description};
+
+        const response = await fetch(`http://localhost:8080/complaint`,{
+            method:"POST",
+            body: JSON.stringify(complaint),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        });
+    
+
+        if (response.status === 201) {
+            alert("Complaint filed.")
+            inputTitle.value = "";
+            inputDescription.value = "";
+        } else { 
+            alert("Error. Complaint not filed.")
+    }
+    });
+</script>
 </html>
