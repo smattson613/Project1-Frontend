@@ -83,23 +83,23 @@
         const password = passwordInput.value;
         const credentials = {username, password};
 
-        const httpResponse = await fetch(`http://localhost:8080/login`, {
-            method: "POST",
-            body:JSON.stringify(credentials),
-            headers:{
-                'Content-Type':'application/json'
-            }
-        })
+        // const httpResponse = await fetch(`http://localhost:8080/login`, {
+        //     method: "POST",
+        //     body:JSON.stringify(credentials),
+        //     headers:{
+        //         'Content-Type':'application/json'
+        //     }
+        // })
 
-        if(httpResponse.status === 200) {
-            const employee = await httpResponse.json();
-            alert("login successful");
-            window.location = "file:///C:/Users/picky/OneDrive/Documents/VSS Files/Project1-Frontend/member-landing-page.html";
-            employee.password = null;
+        // if(httpResponse.status === 200) {
+        //     const employee = await httpResponse.json();
+        //     alert("login successful");
+        //     window.location = "file:///C:/Users/picky/OneDrive/Documents/VSS Files/Project1-Frontend/member-landing-page.html";
+        //     employee.password = null;
              
-            localStorage.setItem("employee", JSON.stringify.employee);
-            localStorage.getItem();
-        }
+        //     localStorage.setItem("employee", JSON.stringify.employee);
+        //     localStorage.getItem();
+        // }
     });
     
 </script>
