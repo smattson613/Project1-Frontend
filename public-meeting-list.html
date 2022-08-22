@@ -6,6 +6,7 @@
 <body>
     <h1>Public Meetings List</h1>
     <nav><a href="file-complaint.html">Submit a Complaint Here</a></nav>
+    <nav><a href="member-landing-page.html">Temp link to member landing page</a></nav>
     <!-- This page will contain the list of meetings for public viewing. -->
     <!-- There will be a login box for council members that takes members to the complaints list -->
     <!-- There will also be a link to file a complaint -->
@@ -17,28 +18,89 @@
             
         </tbody>
     </table>
+
+    <h2>Council Member Login</h2>
+    <form>
+        <fieldset>
+            <legend>Council Member Login</legend>
+
+            <label for="usernameInput"></label>
+            <input id="usernameInput" type="text">
+
+            <label for="passwordInput"></label>
+            <input id="passwordInput" type="text">
+
+            <button>Login</button>
+        </fieldset>
+    </form>
 </body>
 <script>
-            // highPriorityBtn.document.addEventListener('submit', event => {
-            //     event.preventDefault();
-            //     async function updateComplaintStatus(complaintId, status) {
-            //         let requestString = `http://localhost:8080/complaints/${complaintId}/${status}`;
-            //         const response = await fetch(requestString, {
-            //             method:"PATCH",
-            //             body: JSON.stringify(complaint),
-            //             headers: {
-            //              "content-type":"application/json"
-            //             }
-            //         });
-            //         const complaints = await response.json();
-            //         if (response.status === 202) {
-            //             alert("Status updated.")
-            //         } else if (response.status === 304) {
-            //             alert("Error. Status not changed.")
-            //         }
-            //     }
-            // });
+    const meetingTableBody = document.getElementById("meetingTableBody");
 
+    async function getMeetings() {
+        const httpResponse = await fetch(`http://localhost:8080/meetings`);
+        const meetings = await httpResponse.json();
+        return meetings;
+    }
+
+    async function renderMeetingTable() {
+        const testMeeting = await getMeetings()
+
+        for (const meeting of testMeeting) {
+            const meetingRow = document.createElement('tr');
+
+            const meetingIdData = document.createElement('td');
+            meetingIdData.innerText = meeting.meetingId;
+
+            const meetingDescriptionData = document.createElement('td');
+            meetingDescriptionData.innerText = meeting.description;
+
+            const meetingAddressData = document.createElement('td');
+            meetingAddressData.innerText = meeting.address;
+
+            const meetingTimeData = document.createElement('td');
+            meetingTimeData.innerText = meeting.time;
+
+            meetingRow.appendChild(meetingIdData);
+            meetingRow.appendChild(meetingDescriptionData);
+            meetingRow.appendChild(meetingAddressData);
+            meetingRow.appendChild(meetingTimeData);
+
+            if (meetingIdData.innerText > 0) {
+            meetingTableBody.appendChild(meetingRow);
+            }
+        }
+    }
+    renderMeetingTable();
+
+    const usernameInput = document.getElementById('usernameInput');
+    const passwordInput = document.getElementById('passwordInput');
+
+    document.addEventListener('submit', event => {
+        event.preventDefault;
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+        const credentials = {username, password};
+
+        const httpResponse = await fetch(`http://localhost:8080/login`, {
+            method: "POST",
+            body:JSON.stringify(credentials),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        })
+
+        if(httpResponse.status === 200) {
+            const employee = await httpResponse.json();
+            alert("login successful");
+            window.location = "file:///C:/Users/picky/OneDrive/Documents/VSS Files/Project1-Frontend/member-landing-page.html";
+            employee.password = null;
+             
+            localStorage.setItem("employee", JSON.stringify.employee);
+            localStorage.getItem();
+        }
+    });
     
 </script>
 </html>

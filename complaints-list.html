@@ -32,7 +32,7 @@
     const complaintTableBody = document.getElementById("pleaseWork");
 
     async function getComplaints() {
-        const httpResponse = await fetch('http://localhost:8080/complaints')
+        const httpResponse = await fetch('http://localhost:8080/complaints');
         const complaints = await httpResponse.json();
         return complaints;
     }
