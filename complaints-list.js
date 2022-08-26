@@ -98,6 +98,30 @@
                 } else if (response.status === 304) {
                     alert("Error. Status not changed.")
                 }
+            });            
+            
+            const addressedBtnTD = document.createElement('td');
+            const addressedBtn = document.createElement('button');
+            addressedBtnTD.appendChild(addressedBtn);
+            addressedBtn.innerText = "Addressed";
+            addressedBtn.dataset.complaintId = complaint.complaintId;
+            addressedBtn.dataset.status = "addressed";
+            addressedBtn.addEventListener('click', async event => {
+                event.preventDefault();
+
+                const complaintId = addressedBtn.dataset.complaintId;
+                const status = addressedBtn.dataset.status;
+
+                const response = await fetch(`http://localhost:8080/complaints/${complaintId}/${status}`, {
+                    method: "PATCH"
+                });
+                const complaints = await response.json();
+                if (response.status === 202) {
+                    alert("Status updated.")
+                    location.reload();
+                } else if (response.status === 304) {
+                    alert("Error. Status not changed.")
+                }
             });
 
 
@@ -109,6 +133,7 @@
             complaintRow.appendChild(highBtnTD);
             complaintRow.appendChild(lowBtnTD);
             complaintRow.appendChild(ignoreBtnTD);
+            complaintRow.appendChild(addressedBtnTD);
 
             complaintTableBody.appendChild(complaintRow);
         }
