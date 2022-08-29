@@ -1,7 +1,7 @@
 const complaintTableBody = document.getElementById("complaintTableBody");
 
     async function getComplaints() {
-        const httpResponse = await fetch('http://localhost:8080/complaints');
+        const httpResponse = await fetch('https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints');
         const complaints = await httpResponse.json();
         return complaints;
     }
@@ -45,7 +45,7 @@ const complaintTableBody = document.getElementById("complaintTableBody");
                 const complaintId = complaint.complaintId;
                 const meetingId = document.getElementById(`assignInput` + `${complaint.complaintId}`).value;
 
-                const response = await fetch(`http://localhost:8080/assign/${complaintId}/${meetingId}`, {
+                const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/assign/${complaintId}/${meetingId}`, {
                     method: "PATCH"
                 });
                 const complaints = await response.json();
@@ -88,7 +88,7 @@ const complaintTableBody = document.getElementById("complaintTableBody");
         const epochDate = fullDate.getTime() / 1000.0;
         const meeting = { meetingId: 0, description, address, time: epochDate };
 
-        const response = await fetch(`http://localhost:8080/meeting`, {
+        const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/meeting`, {
             method: "POST",
             body: JSON.stringify(meeting),
             headers: {

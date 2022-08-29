@@ -2,7 +2,7 @@
     const complaintTableBody = document.getElementById("complaintTableBody");
 
     async function getComplaints() {
-        const httpResponse = await fetch('http://localhost:8080/complaints');
+        const httpResponse = await fetch('https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints');
         const complaints = await httpResponse.json();
         return complaints;
     }
@@ -43,7 +43,7 @@
                 const complaintId = highPriorityBtn.dataset.complaintId;
                 const status = highPriorityBtn.dataset.status;
 
-                const response = await fetch(`http://localhost:8080/complaints/${complaintId}/${status}`, {
+                const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints/${complaintId}/${status}`, {
                     method: "PATCH"
                 });
                 const complaints = await response.json();
@@ -69,7 +69,7 @@
                 const complaintId = lowPriorityBtn.dataset.complaintId;
                 const status = lowPriorityBtn.dataset.status;
 
-                const response = await fetch(`http://localhost:8080/complaints/${complaintId}/${status}`, {
+                const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints/${complaintId}/${status}`, {
                     method: "PATCH"
                 });
                 const complaints = await response.json();
@@ -95,7 +95,7 @@
                 const complaintId = ignoreBtn.dataset.complaintId;
                 const status = ignoreBtn.dataset.status;
 
-                const response = await fetch(`http://localhost:8080/complaints/${complaintId}/${status}`, {
+                const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints/${complaintId}/${status}`, {
                     method: "PATCH"
                 });
                 const complaints = await response.json();
@@ -121,7 +121,7 @@
                 const complaintId = addressedBtn.dataset.complaintId;
                 const status = addressedBtn.dataset.status;
 
-                const response = await fetch(`http://localhost:8080/complaints/${complaintId}/${status}`, {
+                const response = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/complaints/${complaintId}/${status}`, {
                     method: "PATCH"
                 });
                 const complaints = await response.json();

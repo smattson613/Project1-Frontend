@@ -1,7 +1,7 @@
 const meetingTableBody = document.getElementById("meetingTableBody");
 
 async function getMeetings() {
-    const httpResponse = await fetch(`http://localhost:8080/meetings`);
+    const httpResponse = await fetch(`https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/meetings`);
     const meetings = await httpResponse.json();
     return meetings;
 }
@@ -47,7 +47,7 @@ document.addEventListener('submit', async event => {
     const password = passwordInput.value;
     const credentials = {username, password};
 
-    const httpResponse = await fetch("http://localhost:8080/login", {
+    const httpResponse = await fetch("https://complaint-app.calmcoast-837dad38.eastus.azurecontainerapps.io/login", {
         method: "POST",
         body:JSON.stringify(credentials),
         headers:{
