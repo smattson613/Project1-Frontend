@@ -3,40 +3,45 @@
 
 <head>
     <title>Complaints</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" 
-    rel="stylesheet" 
-    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" 
-    crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="complaints-list-style.css">
 </head>
+
 <body>
-    <h1>Complaints List</h1>
-    <nav><a href="public-meeting-list.html">
-        <button>Home Page</button>
-    </a>
-    </nav>
-    <nav><a href="create-meetings.html">
-        <button>Create a Meeting</button>
-    </a>
-    </nav>
-    <table class="table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Title</th>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Meeting ID</th>
-                <th>High Priority</th>
-                <th>Low Priority</th>
-                <th>Ignored</th>
-                <th>Addressed</th>
-            </tr>
-        </thead>
-        <tbody id="complaintTableBody"></tbody>
-    </table>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" 
-    integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" 
-    crossorigin="anonymous"></script>
+    <div class="container-fluid">
+        <h1>Complaints List</h1>
+        <div style="padding-bottom: 4px;">
+            <a href="public-meeting-list.html">
+                <button class="btn btn-light myButton">Home Page</button>
+            </a>
+
+            <a href="create-meetings.html">
+                <button class="btn btn-light myButton">Create a Meeting</button>
+            </a>
+        </div>
+        <table class="table table-secondary table-bordered table-responsive table-striped table-hover align-middle">
+            <thead>
+                <tr class="table-primary">
+                    <th>ID</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Meeting ID</th>
+                    <th>High Priority</th>
+                    <th>Low Priority</th>
+                    <th>Ignored</th>
+                    <th>Addressed</th>
+                </tr>
+            </thead>
+            <tbody id="complaintTableBody"></tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+        crossorigin="anonymous"></script>
 </body>
 <script src="complaints-list.js"></script>
+
 </html>

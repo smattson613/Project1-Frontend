@@ -1,0 +1,9 @@
+body {
+    background-image: url('./images/background-image.jpeg');
+}
+
+.myButton {
+    width: max-content;
+    font-weight: bold;
+    color: black;
+}

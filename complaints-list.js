@@ -26,10 +26,13 @@
             complaintStatusData.innerText = complaint.status;
 
             const complaintMeetingIdData = document.createElement('td');
+            complaintMeetingIdData.style.textAlign = 'center';
             complaintMeetingIdData.innerText = complaint.meetingId;
 
             const highBtnTD = document.createElement('td');
+            highBtnTD.style.textAlign = 'center';
             const highPriorityBtn = document.createElement('button');
+            highPriorityBtn.className = 'btn btn-light myButton';
             highBtnTD.appendChild(highPriorityBtn);
             highPriorityBtn.innerText = "High Priority";
             highPriorityBtn.dataset.complaintId = complaint.complaintId;
@@ -53,7 +56,9 @@
             });
 
             const lowBtnTD = document.createElement('td');
+            lowBtnTD.style.textAlign = 'center';
             const lowPriorityBtn = document.createElement('button');
+            lowPriorityBtn.className = 'btn btn-light myButton';
             lowBtnTD.appendChild(lowPriorityBtn);
             lowPriorityBtn.innerText = "Low Priority";
             lowPriorityBtn.dataset.complaintId = complaint.complaintId;
@@ -77,7 +82,9 @@
             });
 
             const ignoreBtnTD = document.createElement('td');
+            ignoreBtnTD.style.textAlign = 'center';
             const ignoreBtn = document.createElement('button');
+            ignoreBtn.className = 'btn btn-light myButton';
             ignoreBtnTD.appendChild(ignoreBtn);
             ignoreBtn.innerText = "Ignore";
             ignoreBtn.dataset.complaintId = complaint.complaintId;
@@ -101,7 +108,9 @@
             });            
             
             const addressedBtnTD = document.createElement('td');
+            addressedBtnTD.style.textAlign = 'center';
             const addressedBtn = document.createElement('button');
+            addressedBtn.className = 'btn btn-light myButton';
             addressedBtnTD.appendChild(addressedBtn);
             addressedBtn.innerText = "Addressed";
             addressedBtn.dataset.complaintId = complaint.complaintId;

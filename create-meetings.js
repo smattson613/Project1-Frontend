@@ -25,15 +25,17 @@ const complaintTableBody = document.getElementById("complaintTableBody");
             complaintStatusData.innerText = complaint.status;
 
             const complaintMeetingIdData = document.createElement('td');
+            complaintMeetingIdData.style.textAlign = 'center';
             complaintMeetingIdData.innerText = complaint.meetingId;
 
             const meetingAssignTD = document.createElement('td');
             const meetingAssignInput = document.createElement('input');
-            meetingAssignInput.id="assignInput";
+            meetingAssignInput.id = `assignInput` + `${complaint.complaintId}`;
             meetingAssignTD.appendChild(meetingAssignInput);
 
             const assignBtnTD = document.createElement('td');
             const assignBtn = document.createElement('button');
+            assignBtn.className = 'btn btn-light myButton';
             assignBtnTD.appendChild(assignBtn);
             assignBtn.dataset.meetingId = meetingAssignInput.value;
             assignBtn.innerText = "Assign";
@@ -41,7 +43,7 @@ const complaintTableBody = document.getElementById("complaintTableBody");
                 event.preventDefault();
 
                 const complaintId = complaint.complaintId;
-                const meetingId = document.getElementById("assignInput").value;
+                const meetingId = document.getElementById(`assignInput` + `${complaint.complaintId}`).value;
 
                 const response = await fetch(`http://localhost:8080/assign/${complaintId}/${meetingId}`, {
                     method: "PATCH"
